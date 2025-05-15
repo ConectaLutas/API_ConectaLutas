@@ -45,7 +45,7 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
     {
-        builder.WithOrigins("https://conectalutas.netlify.app/") // Adicione a URL do seu front-end aqui
+        builder.WithOrigins("https://conectalutas.netlify.app") // Adicione a URL do seu front-end aqui
                .AllowAnyMethod()
                .AllowAnyHeader()
                .AllowCredentials();
