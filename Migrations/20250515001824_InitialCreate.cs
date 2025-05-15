@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PlataformaJiujitsu.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreateMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -114,6 +114,8 @@ namespace PlataformaJiujitsu.Migrations
                     LinkRegulamento = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     LinkInscricao = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    FotoUrl = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -394,6 +396,28 @@ namespace PlataformaJiujitsu.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
+                name: "Chaves",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Nome = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    CategoriaId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Chaves", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Chaves_Categoria_CategoriaId",
+                        column: x => x.CategoriaId,
+                        principalTable: "Categoria",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
                 name: "Inscricoes",
                 columns: table => new
                 {
@@ -402,7 +426,8 @@ namespace PlataformaJiujitsu.Migrations
                     AtletaId = table.Column<int>(type: "int", nullable: false),
                     CampeonatoId = table.Column<int>(type: "int", nullable: false),
                     CategoriaId = table.Column<int>(type: "int", nullable: true),
-                    DataInscricao = table.Column<DateTime>(type: "datetime(6)", nullable: false)
+                    DataInscricao = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    ChaveId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -424,6 +449,47 @@ namespace PlataformaJiujitsu.Migrations
                         column: x => x.CategoriaId,
                         principalTable: "Categoria",
                         principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Inscricoes_Chaves_ChaveId",
+                        column: x => x.ChaveId,
+                        principalTable: "Chaves",
+                        principalColumn: "Id");
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "Lutas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    ChaveId = table.Column<int>(type: "int", nullable: false),
+                    Atleta1Id = table.Column<int>(type: "int", nullable: false),
+                    Atleta2Id = table.Column<int>(type: "int", nullable: false),
+                    PlacarAtleta1 = table.Column<int>(type: "int", nullable: true),
+                    PlacarAtleta2 = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Lutas", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Lutas_Atletas_Atleta1Id",
+                        column: x => x.Atleta1Id,
+                        principalTable: "Atletas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Lutas_Atletas_Atleta2Id",
+                        column: x => x.Atleta2Id,
+                        principalTable: "Atletas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Lutas_Chaves_ChaveId",
+                        column: x => x.ChaveId,
+                        principalTable: "Chaves",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -500,6 +566,11 @@ namespace PlataformaJiujitsu.Migrations
                 column: "GraduacaoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Chaves_CategoriaId",
+                table: "Chaves",
+                column: "CategoriaId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Graduacoes_EsporteId",
                 table: "Graduacoes",
                 column: "EsporteId");
@@ -518,6 +589,26 @@ namespace PlataformaJiujitsu.Migrations
                 name: "IX_Inscricoes_CategoriaId",
                 table: "Inscricoes",
                 column: "CategoriaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Inscricoes_ChaveId",
+                table: "Inscricoes",
+                column: "ChaveId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Lutas_Atleta1Id",
+                table: "Lutas",
+                column: "Atleta1Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Lutas_Atleta2Id",
+                table: "Lutas",
+                column: "Atleta2Id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Lutas_ChaveId",
+                table: "Lutas",
+                column: "ChaveId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Professores_AcademiaId",
@@ -547,13 +638,16 @@ namespace PlataformaJiujitsu.Migrations
                 name: "Inscricoes");
 
             migrationBuilder.DropTable(
+                name: "Lutas");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "Atletas");
 
             migrationBuilder.DropTable(
-                name: "Categoria");
+                name: "Chaves");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
@@ -562,13 +656,16 @@ namespace PlataformaJiujitsu.Migrations
                 name: "Professores");
 
             migrationBuilder.DropTable(
+                name: "Categoria");
+
+            migrationBuilder.DropTable(
+                name: "Academias");
+
+            migrationBuilder.DropTable(
                 name: "Campeonatos");
 
             migrationBuilder.DropTable(
                 name: "Graduacoes");
-
-            migrationBuilder.DropTable(
-                name: "Academias");
 
             migrationBuilder.DropTable(
                 name: "Esportes");

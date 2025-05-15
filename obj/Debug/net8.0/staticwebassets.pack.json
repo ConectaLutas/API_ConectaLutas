@@ -1,0 +1,49 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\28d0042e-5664-4b64-a8f9-3fec83d29384_copa-puro-impacto-2025.jpg",
+      "PackagePath": "staticwebassets\\uploads\\28d0042e-5664-4b64-a8f9-3fec83d29384_copa-puro-impacto-2025.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\2f6b14ac-c310-43a2-8ba0-d8b10fc36a43_copa-desterro-jiu-jitsu-profissional-oeste-extremo-catarinense-1-2025.jpg",
+      "PackagePath": "staticwebassets\\uploads\\2f6b14ac-c310-43a2-8ba0-d8b10fc36a43_copa-desterro-jiu-jitsu-profissional-oeste-extremo-catarinense-1-2025.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\319fec3f-68f5-482b-865e-599e04debab6_iii-copa-itapiranga-jiu-jitsu.jpg",
+      "PackagePath": "staticwebassets\\uploads\\319fec3f-68f5-482b-865e-599e04debab6_iii-copa-itapiranga-jiu-jitsu.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\81734e95-c9eb-4b0a-b3c7-dcab3476be44_bolivian-national-gi-no-gi.jpg",
+      "PackagePath": "staticwebassets\\uploads\\81734e95-c9eb-4b0a-b3c7-dcab3476be44_bolivian-national-gi-no-gi.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\9856389e-02ca-429a-8a00-b18934bc38b1_Screenshot-2025-04-28T11-52-28.307Z.png",
+      "PackagePath": "staticwebassets\\uploads\\9856389e-02ca-429a-8a00-b18934bc38b1_Screenshot-2025-04-28T11-52-28.307Z.png"
+    },
+    {
+      "Id": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\f1412f41-930c-4b15-a2be-0a1674a01d21_copa-kind-2025.jpg",
+      "PackagePath": "staticwebassets\\uploads\\f1412f41-930c-4b15-a2be-0a1674a01d21_copa-kind-2025.jpg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PlataformaJiujitsu.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.PlataformaJiujitsu.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.PlataformaJiujitsu.props",
+      "PackagePath": "build\\PlataformaJiujitsu.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.PlataformaJiujitsu.props",
+      "PackagePath": "buildMultiTargeting\\PlataformaJiujitsu.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.PlataformaJiujitsu.props",
+      "PackagePath": "buildTransitive\\PlataformaJiujitsu.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

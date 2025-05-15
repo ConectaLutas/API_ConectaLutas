@@ -1,5 +1,498 @@
 {
   "Version": 1,
   "ManifestType": "Build",
-  "Endpoints": []
+  "Endpoints": [
+    {
+      "Route": "uploads/28d0042e-5664-4b64-a8f9-3fec83d29384_copa-puro-impacto-2025.jpg",
+      "AssetFile": "uploads/28d0042e-5664-4b64-a8f9-3fec83d29384_copa-puro-impacto-2025.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "35780"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wxh8q4GmC2ij4XKD3nFKlX1Alr6iDX76yzoyqkogYW0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 00:34:45 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-wxh8q4GmC2ij4XKD3nFKlX1Alr6iDX76yzoyqkogYW0="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/28d0042e-5664-4b64-a8f9-3fec83d29384_copa-puro-impacto-2025.xr9jrxlnjn.jpg",
+      "AssetFile": "uploads/28d0042e-5664-4b64-a8f9-3fec83d29384_copa-puro-impacto-2025.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "35780"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wxh8q4GmC2ij4XKD3nFKlX1Alr6iDX76yzoyqkogYW0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 00:34:45 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "xr9jrxlnjn"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-wxh8q4GmC2ij4XKD3nFKlX1Alr6iDX76yzoyqkogYW0="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/28d0042e-5664-4b64-a8f9-3fec83d29384_copa-puro-impacto-2025.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/2f6b14ac-c310-43a2-8ba0-d8b10fc36a43_copa-desterro-jiu-jitsu-profissional-oeste-extremo-catarinense-1-2025.fosksi1t7i.jpg",
+      "AssetFile": "uploads/2f6b14ac-c310-43a2-8ba0-d8b10fc36a43_copa-desterro-jiu-jitsu-profissional-oeste-extremo-catarinense-1-2025.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "35622"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"L0InQBrLx0hDdy3seZtY+WFJ0QAVrQCJ2pCoPdgDAKA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 00:36:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fosksi1t7i"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-L0InQBrLx0hDdy3seZtY+WFJ0QAVrQCJ2pCoPdgDAKA="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/2f6b14ac-c310-43a2-8ba0-d8b10fc36a43_copa-desterro-jiu-jitsu-profissional-oeste-extremo-catarinense-1-2025.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/2f6b14ac-c310-43a2-8ba0-d8b10fc36a43_copa-desterro-jiu-jitsu-profissional-oeste-extremo-catarinense-1-2025.jpg",
+      "AssetFile": "uploads/2f6b14ac-c310-43a2-8ba0-d8b10fc36a43_copa-desterro-jiu-jitsu-profissional-oeste-extremo-catarinense-1-2025.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "35622"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"L0InQBrLx0hDdy3seZtY+WFJ0QAVrQCJ2pCoPdgDAKA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 00:36:10 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-L0InQBrLx0hDdy3seZtY+WFJ0QAVrQCJ2pCoPdgDAKA="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/319fec3f-68f5-482b-865e-599e04debab6_iii-copa-itapiranga-jiu-jitsu.jeja8gvdei.jpg",
+      "AssetFile": "uploads/319fec3f-68f5-482b-865e-599e04debab6_iii-copa-itapiranga-jiu-jitsu.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28786"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RQf/VmL2ESrL7nTZvL7b9dnTs1JcHMtvvtOi6UAd0to=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 00:34:34 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "jeja8gvdei"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-RQf/VmL2ESrL7nTZvL7b9dnTs1JcHMtvvtOi6UAd0to="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/319fec3f-68f5-482b-865e-599e04debab6_iii-copa-itapiranga-jiu-jitsu.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/319fec3f-68f5-482b-865e-599e04debab6_iii-copa-itapiranga-jiu-jitsu.jpg",
+      "AssetFile": "uploads/319fec3f-68f5-482b-865e-599e04debab6_iii-copa-itapiranga-jiu-jitsu.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28786"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"RQf/VmL2ESrL7nTZvL7b9dnTs1JcHMtvvtOi6UAd0to=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 00:34:34 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-RQf/VmL2ESrL7nTZvL7b9dnTs1JcHMtvvtOi6UAd0to="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/81734e95-c9eb-4b0a-b3c7-dcab3476be44_bolivian-national-gi-no-gi.jpg",
+      "AssetFile": "uploads/81734e95-c9eb-4b0a-b3c7-dcab3476be44_bolivian-national-gi-no-gi.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28974"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0DwVtcK+xHFCPBIIWjiQYt+UeFSAxy0NGjnwzc3lrY8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 00:36:21 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-0DwVtcK+xHFCPBIIWjiQYt+UeFSAxy0NGjnwzc3lrY8="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/81734e95-c9eb-4b0a-b3c7-dcab3476be44_bolivian-national-gi-no-gi.wsska18ckx.jpg",
+      "AssetFile": "uploads/81734e95-c9eb-4b0a-b3c7-dcab3476be44_bolivian-national-gi-no-gi.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "28974"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"0DwVtcK+xHFCPBIIWjiQYt+UeFSAxy0NGjnwzc3lrY8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 00:36:21 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "wsska18ckx"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-0DwVtcK+xHFCPBIIWjiQYt+UeFSAxy0NGjnwzc3lrY8="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/81734e95-c9eb-4b0a-b3c7-dcab3476be44_bolivian-national-gi-no-gi.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/9856389e-02ca-429a-8a00-b18934bc38b1_Screenshot-2025-04-28T11-52-28.307Z.dx1scylvpo.png",
+      "AssetFile": "uploads/9856389e-02ca-429a-8a00-b18934bc38b1_Screenshot-2025-04-28T11-52-28.307Z.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "158276"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"P6NfrQAsMQSWffrNU2lCEt0GkjLvR5smg34vRlW2XbM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 00:21:35 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "dx1scylvpo"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-P6NfrQAsMQSWffrNU2lCEt0GkjLvR5smg34vRlW2XbM="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/9856389e-02ca-429a-8a00-b18934bc38b1_Screenshot-2025-04-28T11-52-28.307Z.png"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/9856389e-02ca-429a-8a00-b18934bc38b1_Screenshot-2025-04-28T11-52-28.307Z.png",
+      "AssetFile": "uploads/9856389e-02ca-429a-8a00-b18934bc38b1_Screenshot-2025-04-28T11-52-28.307Z.png",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "158276"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/png"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"P6NfrQAsMQSWffrNU2lCEt0GkjLvR5smg34vRlW2XbM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 00:21:35 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-P6NfrQAsMQSWffrNU2lCEt0GkjLvR5smg34vRlW2XbM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/f1412f41-930c-4b15-a2be-0a1674a01d21_copa-kind-2025.apni8xz3st.jpg",
+      "AssetFile": "uploads/f1412f41-930c-4b15-a2be-0a1674a01d21_copa-kind-2025.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22261"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fmQD1uFHu2UPEBOqxgtnEx7VBRXHuvMv+6bgGEvf4C0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 00:35:59 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "apni8xz3st"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-fmQD1uFHu2UPEBOqxgtnEx7VBRXHuvMv+6bgGEvf4C0="
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/f1412f41-930c-4b15-a2be-0a1674a01d21_copa-kind-2025.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "uploads/f1412f41-930c-4b15-a2be-0a1674a01d21_copa-kind-2025.jpg",
+      "AssetFile": "uploads/f1412f41-930c-4b15-a2be-0a1674a01d21_copa-kind-2025.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "22261"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"fmQD1uFHu2UPEBOqxgtnEx7VBRXHuvMv+6bgGEvf4C0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 13 May 2025 00:35:59 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-fmQD1uFHu2UPEBOqxgtnEx7VBRXHuvMv+6bgGEvf4C0="
+        }
+      ]
+    }
+  ]
 }

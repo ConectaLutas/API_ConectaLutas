@@ -13,11 +13,11 @@ WORKDIR /app
 
 # Copia os arquivos compilados da etapa anterior
 COPY --from=build /app/out .
-a
-# Define o ambiente como produÁ„o dentro do container
+
+# Define o ambiente como produ√ß√£o dentro do container
 ENV ASPNETCORE_ENVIRONMENT=Production
 
-# Expondo a porta padr„o da aplicaÁ„o
+# Expondo a porta padr√£o da aplica√ß√£o
 EXPOSE 5000
 
 # Comando para iniciar a API

@@ -12,8 +12,8 @@ using PlataformaAPI.Data;
 namespace PlataformaJiujitsu.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250422172609_Initial")]
-    partial class Initial
+    [Migration("20250515001824_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -266,6 +266,10 @@ namespace PlataformaJiujitsu.Migrations
 
                     b.Property<DateTime>("DataInicio")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<string>("FotoUrl")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<int>("IdadeMaxima")
                         .HasColumnType("int");

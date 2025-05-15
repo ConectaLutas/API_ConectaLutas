@@ -24,7 +24,7 @@ namespace PlataformaAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AdicionaCampeonato([FromBody] CreateCampeonatoDto campeonatoDto)
+        public async Task<IActionResult> AdicionaCampeonato([FromForm] CreateCampeonatoDto campeonatoDto)
         {
             if (!ModelState.IsValid)
             {
@@ -34,8 +34,27 @@ namespace PlataformaAPI.Controllers
             try
             {
                 var campeonato = _mapper.Map<Campeonato>(campeonatoDto);
-                campeonato.AtualizarStatus();
 
+                if (campeonatoDto.Foto != null)
+                {
+                    // Defina o caminho para salvar as fotos
+                    var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads");
+                    if (!Directory.Exists(folderPath))
+                        Directory.CreateDirectory(folderPath);
+
+                    var fileName = $"{Guid.NewGuid()}_{campeonatoDto.Foto.FileName}";
+                    var filePath = Path.Combine(folderPath, fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await campeonatoDto.Foto.CopyToAsync(stream);
+                    }
+
+                    // Salva a URL relativa para a foto
+                    campeonato.FotoUrl = $"/uploads/{fileName}";
+                }
+
+                campeonato.AtualizarStatus();
                 _context.Campeonatos.Add(campeonato);
                 await _context.SaveChangesAsync();
 

@@ -264,6 +264,10 @@ namespace PlataformaJiujitsu.Migrations
                     b.Property<DateTime>("DataInicio")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<string>("FotoUrl")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
                     b.Property<int>("IdadeMaxima")
                         .HasColumnType("int");
 

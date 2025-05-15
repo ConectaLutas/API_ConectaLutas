@@ -70,5 +70,7 @@ namespace PlataformaAPI.Models
                 Status = StatusCampeonato.Encerrado;
             }
         }
+        // Novo campo para a URL da foto
+        public string FotoUrl { get; set; }
     }
 }

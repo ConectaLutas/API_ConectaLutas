@@ -40,6 +40,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+// Configuração de CORS
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins("http://localhost:3000") // Adicione a URL do seu front-end aqui
+               .AllowAnyMethod()
+               .AllowAnyHeader()
+               .AllowCredentials();
+    });
+});
+
 // Configuração do Swagger para funcionar em produção e desenvolvimento
 builder.Services.AddSwaggerGen(c =>
 {
@@ -81,17 +93,19 @@ app.UseSwaggerUI(c =>
 });
 
 // Middleware
+app.UseCors();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseStaticFiles();
 
 
 app.MapControllers();
+
 // Aplica automaticamente todas as migrations pendentes ao iniciar a aplicação
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     db.Database.Migrate();
 }
-
 
 app.Run();

@@ -33,4 +33,6 @@ public class CreateCampeonatoDto
 
     public string LinkRegulamento { get; set; }
     public string LinkInscricao { get; set; }
+    // Novo campo para a foto do campeonato
+    public IFormFile Foto { get; set; }
 }

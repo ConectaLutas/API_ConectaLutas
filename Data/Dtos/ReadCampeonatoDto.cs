@@ -19,5 +19,7 @@ namespace PlataformaAPI.Data.Dtos
         public string LinkRegulamento { get; set; }
         public string LinkInscricao { get; set; }
         public StatusCampeonato Status { get; set; }
+        // Novo campo para a foto
+        public string FotoUrl { get; set; }
     }
 }
