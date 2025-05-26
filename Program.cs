@@ -6,62 +6,102 @@ using Microsoft.IdentityModel.Tokens;
 using PlataformaAPI.Data;
 using PlataformaAPI.Models;
 using System.Text;
+using System.Threading.Tasks;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Conexão com o banco de dados
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 Console.WriteLine($"Connection String: {connectionString}");
 
 builder.Services.AddDbContext<ApplicationDbContext>(opts =>
-     opts.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+    opts.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 // Configuração do Identity
 builder.Services
-    .AddIdentity<Usuario, IdentityRole>()
+    .AddIdentity<Usuario, IdentityRole>(options =>
+    {
+        // Opcional: configurações do Identity, ex: senha, lockout, etc.
+    })
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
+// Evitar redirecionamento para login em APIs, retornar 401 Unauthorized
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Events.OnRedirectToLogin = context =>
+    {
+        if (context.Request.Path.StartsWithSegments("/api"))
+        {
+            context.Response.StatusCode = 401;
+            return Task.CompletedTask;
+        }
+        context.Response.Redirect(context.RedirectUri);
+        return Task.CompletedTask;
+    };
+
+    options.Events.OnRedirectToAccessDenied = context =>
+    {
+        if (context.Request.Path.StartsWithSegments("/api"))
+        {
+            context.Response.StatusCode = 403;
+            return Task.CompletedTask;
+        }
+        context.Response.Redirect(context.RedirectUri);
+        return Task.CompletedTask;
+    };
+});
+
+// AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+// Controllers
 builder.Services.AddControllers();
 
-// Configuração de Autenticação com JWT
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
+// Configuração JWT Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
     {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
-        };
-    });
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
+    };
+});
 
-// Configuração de CORS
+// CORS
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(builder =>
+    options.AddDefaultPolicy(policy =>
     {
-        builder.WithOrigins("http://localhost:3000") // Adicione a URL do seu front-end aqui
-               .AllowAnyMethod()
-               .AllowAnyHeader()
-               .AllowCredentials();
+        policy.WithOrigins("http://localhost:3000")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
 
-// Configuração do Swagger para funcionar em produção e desenvolvimento
+// Swagger com suporte a autenticação JWT
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Plataforma de Campeonato de lutas API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Plataforma de Campeonato de Lutas API", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
-        In = ParameterLocation.Header,
-        Description = "Por favor insira o token JWT com o prefixo 'Bearer' na frente",
         Name = "Authorization",
-        Type = SecuritySchemeType.ApiKey
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "Insira o token JWT no campo abaixo (ex: Bearer eyJhbGciOiJIUzI1...)"
     });
 
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
@@ -69,13 +109,13 @@ builder.Services.AddSwaggerGen(c =>
         {
             new OpenApiSecurityScheme
             {
-                Reference = new OpenApiReference
-                {
-                    Type = ReferenceType.SecurityScheme,
-                    Id = "Bearer"
+                Reference = new OpenApiReference 
+                { 
+                    Type = ReferenceType.SecurityScheme, 
+                    Id = "Bearer" 
                 }
             },
-            new string[] {}
+            new string[] { }
         }
     });
 });
@@ -84,24 +124,25 @@ builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
-// Habilitar o Swagger em ambos os ambientes (desenvolvimento e produção)
+// Swagger em todos ambientes
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Plataforma de JiuJitsu API V1");
-    c.RoutePrefix = string.Empty; // Torna o Swagger acessível na raiz do app
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Plataforma de Campeonato de Lutas API v1");
+    c.RoutePrefix = string.Empty; // Swagger na raiz
 });
 
-// Middleware
+// Middleware pipeline
 app.UseCors();
+
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseStaticFiles();
 
+app.UseStaticFiles();
 
 app.MapControllers();
 
-// Aplica automaticamente todas as migrations pendentes ao iniciar a aplicação
+// Auto aplicar migrations no startup
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
