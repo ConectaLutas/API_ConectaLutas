@@ -15,7 +15,7 @@ Console.WriteLine($"Connection String: {connectionString}");
 builder.Services.AddDbContext<ApplicationDbContext>(opts =>
      opts.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-// Configuração do Identity
+// ConfiguraÃ§Ã£o do Identity
 builder.Services
     .AddIdentity<Usuario, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -24,7 +24,7 @@ builder.Services
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddControllers();
 
-// Configuração de Autenticação com JWT
+// ConfiguraÃ§Ã£o de AutenticaÃ§Ã£o com JWT
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -40,19 +40,19 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// Configuração de CORS
+// ConfiguraÃ§Ã£o de CORS
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
     {
-        builder.WithOrigins("https://conectalutas.netlify.app") // Adicione a URL do seu front-end aqui
+        builder.WithOrigins("http://localhost:3000/") // Adicione a URL do seu front-end aqui
                .AllowAnyMethod()
                .AllowAnyHeader()
                .AllowCredentials();
     });
 });
 
-// Configuração do Swagger para funcionar em produção e desenvolvimento
+// ConfiguraÃ§Ã£o do Swagger para funcionar em produÃ§Ã£o e desenvolvimento
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Plataforma de Campeonato de lutas API", Version = "v1" });
@@ -84,12 +84,12 @@ builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
 
-// Habilitar o Swagger em ambos os ambientes (desenvolvimento e produção)
+// Habilitar o Swagger em ambos os ambientes (desenvolvimento e produÃ§Ã£o)
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Plataforma de JiuJitsu API V1");
-    c.RoutePrefix = string.Empty; // Torna o Swagger acessível na raiz do app
+    c.RoutePrefix = string.Empty; // Torna o Swagger acessÃ­vel na raiz do app
 });
 
 // Middleware
@@ -101,7 +101,7 @@ app.UseStaticFiles();
 
 app.MapControllers();
 
-// Aplica automaticamente todas as migrations pendentes ao iniciar a aplicação
+// Aplica automaticamente todas as migrations pendentes ao iniciar a aplicaÃ§Ã£o
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
