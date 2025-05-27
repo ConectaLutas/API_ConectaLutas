@@ -20,9 +20,8 @@ namespace PlataformaJiujitsu.Controllers
             _userManager = userManager;
             _context = context;
         }
-
-        [HttpPost("{campeonatoId}/inscrever")]
         [Authorize]
+        [HttpPost("{campeonatoId}/inscrever")]
         public async Task<IActionResult> InscreverNoCampeonato([FromRoute] int campeonatoId)
         {
             var usuarioAtual = await _userManager.GetUserAsync(User);
