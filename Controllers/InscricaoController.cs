@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using PlataformaAPI.Data; // Certifique-se de que este namespace está correto
-using PlataformaAPI.Models; // Certifique-se de que este namespace está correto
-using Microsoft.AspNetCore.Authentication.JwtBearer; // Importante: adicione este using
+using PlataformaAPI.Models;
+using PlataformaJiujitsu.Models;
+using PlataformaAPI.Data;
 
 namespace PlataformaJiujitsu.Controllers
 {
