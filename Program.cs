@@ -117,7 +117,7 @@ app.UseSwaggerUI(c =>
 });
 
 // --- ORDEM DOS MIDDLEWARES É CRÍTICA ---
-// app.UseStaticFiles(); // Geralmente vem primeiro para servir arquivos estáticos rapidamente
+app.UseStaticFiles(); // Geralmente vem primeiro para servir arquivos estáticos rapidamente
 app.UseRouting(); // Permite que o roteamento seja resolvido antes de outros middlewares
 app.UseCors(); // CORS deve vir ANTES da autenticação/autorização
 app.UseAuthentication(); // Autentica o usuário (valida o token JWT)
