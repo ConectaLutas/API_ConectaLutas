@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 using PlataformaAPI.Data;
 using PlataformaAPI.Models;
 using System.Text;
+using Microsoft.AspNetCore.Http; // Necessário para HttpContext
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +14,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 Console.WriteLine($"Connection String: {connectionString}");
 
 builder.Services.AddDbContext<ApplicationDbContext>(opts =>
-     opts.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
+       opts.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 // Configuração do Identity
 builder.Services
@@ -38,6 +39,24 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidAudience = builder.Configuration["Jwt:Audience"],
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
         };
+
+        // **AQUI ESTÁ A MUDANÇA MAIS IMPORTANTE PARA O SEU PROBLEMA DE REDIRECIONAMENTO/CORS**
+        // Desativa o redirecionamento padrão para a página de login
+        // e força a API a retornar um 401 Unauthorized quando o token é inválido/ausente.
+        options.Events = new JwtBearerEvents
+        {
+            OnChallenge = context =>
+            {
+                context.HandleResponse(); // Previne o comportamento padrão (redirecionamento HTTP 302)
+                context.Response.StatusCode = 401; // Define o status HTTP para 401 Unauthorized
+                context.Response.ContentType = "application/json"; // Define o tipo de conteúdo da resposta
+
+                // Escreve uma mensagem de erro JSON para o frontend
+                return context.Response.WriteAsync(
+                    System.Text.Json.JsonSerializer.Serialize(new { message = "Você não está autorizado ou seu token é inválido/expirou. Faça login novamente." })
+                );
+            }
+        };
     });
 
 // Configuração de CORS
@@ -45,21 +64,23 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(builder =>
     {
-        builder.WithOrigins("https://conectalutas.netlify.app") // Adicione a URL do seu front-end aqui https://conectalutas.netlify.app http://localhost:3000
-               .AllowAnyMethod()
-               .AllowAnyHeader()
-               .AllowCredentials();
+        // Certifique-se de que todas as URLs do seu frontend estão aqui.
+        // Inclua http://localhost:PORTA se estiver em desenvolvimento.
+        builder.WithOrigins("https://conectalutas.netlify.app", "http://localhost:3000", "http://localhost:5173") // Exemplo para Vite
+                       .AllowAnyMethod()
+                       .AllowAnyHeader()
+                       .AllowCredentials(); // Use AllowCredentials se você estiver usando cookies ou sessões, senão pode remover.
     });
 });
 
 // Configuração do Swagger para funcionar em produção e desenvolvimento
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Plataforma de Campeonato de lutas API", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Plataforma de Campeonato de Lutas API", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
-        Description = "Por favor insira o token JWT com o prefixo 'Bearer' na frente",
+        Description = "Por favor, insira o token JWT com o prefixo 'Bearer' na frente",
         Name = "Authorization",
         Type = SecuritySchemeType.ApiKey
     });
@@ -92,13 +113,12 @@ app.UseSwaggerUI(c =>
     c.RoutePrefix = string.Empty; // Torna o Swagger acessível na raiz do app
 });
 
-// Middleware (ordem correta)
-app.UseCors();
-app.UseStaticFiles();
-app.UseAuthentication();
-app.UseAuthorization();
-
-
+// --- ORDEM DOS MIDDLEWARES É CRÍTICA ---
+// app.UseStaticFiles(); // Geralmente vem primeiro para servir arquivos estáticos rapidamente
+app.UseRouting(); // Permite que o roteamento seja resolvido antes de outros middlewares
+app.UseCors(); // CORS deve vir ANTES da autenticação/autorização
+app.UseAuthentication(); // Autentica o usuário (valida o token JWT)
+app.UseAuthorization(); // Verifica as permissões do usuário autenticado
 
 app.MapControllers();
 
