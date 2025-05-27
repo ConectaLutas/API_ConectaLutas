@@ -70,7 +70,7 @@ namespace PlataformaAPI.Controllers
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(1), // Token expira em 1 minutos
+                expires: DateTime.UtcNow.AddMinutes(60), // Token expira em 1 minutos
                 signingCredentials: credentials
             );
 
