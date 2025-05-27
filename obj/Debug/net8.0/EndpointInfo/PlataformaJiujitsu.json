@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Plataforma de Campeonato de lutas API",
+    "title": "Plataforma de Campeonato de Lutas API",
     "version": "v1"
   },
   "paths": {
@@ -230,19 +230,110 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/CreateCampeonatoDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCampeonatoDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateCampeonatoDto"
+                "required": [
+                  "DataFim",
+                  "DataInicio",
+                  "LocalEvento",
+                  "Nome",
+                  "SobreEvento"
+                ],
+                "type": "object",
+                "properties": {
+                  "Nome": {
+                    "type": "string"
+                  },
+                  "DataInicio": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "DataFim": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "SobreEvento": {
+                    "maxLength": 500,
+                    "minLength": 0,
+                    "type": "string"
+                  },
+                  "LocalEvento": {
+                    "type": "string"
+                  },
+                  "TaxaInscricao": {
+                    "minimum": 0,
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Premiacoes": {
+                    "type": "string"
+                  },
+                  "MaxInscritos": {
+                    "maximum": 2147483647,
+                    "minimum": 1,
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "IdadeMinima": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "IdadeMaxima": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "LinkRegulamento": {
+                    "type": "string"
+                  },
+                  "LinkInscricao": {
+                    "type": "string"
+                  },
+                  "Foto": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "Nome": {
+                  "style": "form"
+                },
+                "DataInicio": {
+                  "style": "form"
+                },
+                "DataFim": {
+                  "style": "form"
+                },
+                "SobreEvento": {
+                  "style": "form"
+                },
+                "LocalEvento": {
+                  "style": "form"
+                },
+                "TaxaInscricao": {
+                  "style": "form"
+                },
+                "Premiacoes": {
+                  "style": "form"
+                },
+                "MaxInscritos": {
+                  "style": "form"
+                },
+                "IdadeMinima": {
+                  "style": "form"
+                },
+                "IdadeMaxima": {
+                  "style": "form"
+                },
+                "LinkRegulamento": {
+                  "style": "form"
+                },
+                "LinkInscricao": {
+                  "style": "form"
+                },
+                "Foto": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -483,6 +574,29 @@
     },
     "/api/Chave/{campeonatoId}/gerar-chave": {
       "post": {
+        "tags": [
+          "Chave"
+        ],
+        "parameters": [
+          {
+            "name": "campeonatoId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Chave/{campeonatoId}/chaves": {
+      "get": {
         "tags": [
           "Chave"
         ],
@@ -764,37 +878,6 @@
         }
       }
     },
-    "/Usuario/cadastrar": {
-      "post": {
-        "tags": [
-          "Usuario"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUsuarioDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUsuarioDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateUsuarioDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
     "/Usuario/login": {
       "post": {
         "tags": [
@@ -1009,6 +1092,10 @@
               "$ref": "#/components/schemas/Inscricao"
             },
             "nullable": true
+          },
+          "fotoUrl": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1166,71 +1253,6 @@
         },
         "additionalProperties": false
       },
-      "CreateCampeonatoDto": {
-        "required": [
-          "dataFim",
-          "dataInicio",
-          "localEvento",
-          "nome",
-          "sobreEvento"
-        ],
-        "type": "object",
-        "properties": {
-          "nome": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "dataInicio": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "dataFim": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "sobreEvento": {
-            "maxLength": 500,
-            "minLength": 0,
-            "type": "string"
-          },
-          "localEvento": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "taxaInscricao": {
-            "minimum": 0,
-            "type": "number",
-            "format": "double"
-          },
-          "premiacoes": {
-            "type": "string",
-            "nullable": true
-          },
-          "maxInscritos": {
-            "maximum": 2147483647,
-            "minimum": 1,
-            "type": "integer",
-            "format": "int32"
-          },
-          "idadeMinima": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "idadeMaxima": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "linkRegulamento": {
-            "type": "string",
-            "nullable": true
-          },
-          "linkInscricao": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "CreateProfessorDto": {
         "required": [
           "nome"
@@ -1245,46 +1267,6 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "CreateUsuarioDto": {
-        "required": [
-          "cpf",
-          "dataNascimento",
-          "email",
-          "nomeCompleto",
-          "password",
-          "tipoUsuario"
-        ],
-        "type": "object",
-        "properties": {
-          "nomeCompleto": {
-            "minLength": 1,
-            "type": "string"
-          },
-          "dataNascimento": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "cpf": {
-            "maxLength": 11,
-            "minLength": 11,
-            "type": "string"
-          },
-          "email": {
-            "minLength": 1,
-            "type": "string",
-            "format": "email"
-          },
-          "password": {
-            "minLength": 6,
-            "type": "string",
-            "format": "password"
-          },
-          "tipoUsuario": {
-            "$ref": "#/components/schemas/TipoUsuario"
           }
         },
         "additionalProperties": false
@@ -1469,6 +1451,10 @@
           },
           "status": {
             "$ref": "#/components/schemas/StatusCampeonato"
+          },
+          "fotoUrl": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1652,7 +1638,7 @@
     "securitySchemes": {
       "Bearer": {
         "type": "apiKey",
-        "description": "Por favor insira o token JWT com o prefixo 'Bearer' na frente",
+        "description": "Por favor, insira o token JWT com o prefixo 'Bearer' na frente",
         "name": "Authorization",
         "in": "header"
       }

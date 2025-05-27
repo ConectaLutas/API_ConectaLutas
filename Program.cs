@@ -37,27 +37,24 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
             ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"])),
+            ClockSkew = TimeSpan.Zero, // Não permite diferença de horário
         };
 
-        // **AQUI ESTÁ A MUDANÇA MAIS IMPORTANTE PARA O SEU PROBLEMA DE REDIRECIONAMENTO/CORS**
-        // Desativa o redirecionamento padrão para a página de login
-        // e força a API a retornar um 401 Unauthorized quando o token é inválido/ausente.
         options.Events = new JwtBearerEvents
         {
             OnChallenge = context =>
             {
-                context.HandleResponse(); // Previne o comportamento padrão (redirecionamento HTTP 302)
-                context.Response.StatusCode = 401; // Define o status HTTP para 401 Unauthorized
-                context.Response.ContentType = "application/json"; // Define o tipo de conteúdo da resposta
-
-                // Escreve uma mensagem de erro JSON para o frontend
+                context.HandleResponse();
+                context.Response.StatusCode = 401;
+                context.Response.ContentType = "application/json";
                 return context.Response.WriteAsync(
                     System.Text.Json.JsonSerializer.Serialize(new { message = "Você não está autorizado ou seu token é inválido/expirou. Faça login novamente." })
                 );
             }
         };
     });
+
 
 // Configuração de CORS
 builder.Services.AddCors(options =>
@@ -128,11 +125,11 @@ app.UseAuthorization(); // Verifica as permissões do usuário autenticado
 
 app.MapControllers();
 
-// Aplica automaticamente todas as migrations pendentes ao iniciar a aplicação
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    db.Database.Migrate();
-}
+//// Aplica automaticamente todas as migrations pendentes ao iniciar a aplicação
+//using (var scope = app.Services.CreateScope())
+//{
+//    var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+//    db.Database.Migrate();
+//}
 
 app.Run();

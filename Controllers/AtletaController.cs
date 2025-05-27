@@ -98,5 +98,18 @@ namespace PlataformaJiujitsu.Controllers
 
             return Ok(atleta);
         }
+
+        [HttpGet("por-usuario/{usuarioId}")]
+        public async Task<ActionResult<Atleta>> GetAtletaPorUsuarioId(string usuarioId)
+        {
+            var atleta = await _context.Atletas
+                .Include(a => a.Usuario)
+                .FirstOrDefaultAsync(a => a.UsuarioId == usuarioId);
+
+            if (atleta == null)
+                return NotFound("Atleta não encontrado para este usuário.");
+
+            return Ok(atleta);
+        }
     }
 }

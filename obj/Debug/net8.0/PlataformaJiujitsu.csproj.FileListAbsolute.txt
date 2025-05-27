@@ -1,11 +1,3 @@
-C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.csproj.AssemblyReference.cache
-C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.AssemblyInfoInputs.cache
-C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.AssemblyInfo.cs
-C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.csproj.CoreCompileInputs.cache
-C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.sourcelink.json
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\appsettings.json
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\appsettings.Production.json
@@ -24,7 +16,6 @@ C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\Microsoft.AspNet
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
@@ -114,6 +105,14 @@ C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\ru\Microsoft.Cod
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.csproj.AssemblyReference.cache
+C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.AssemblyInfoInputs.cache
+C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.AssemblyInfo.cs
+C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.csproj.CoreCompileInputs.cache
+C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\PlataformaJiujitsu.sourcelink.json
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\scopedcss\bundle\PlataformaJiujitsu.styles.css
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\ajeni\source\repos\PlataformaJiujitsu\obj\Debug\net8.0\staticwebassets.development.json

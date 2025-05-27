@@ -58,10 +58,11 @@ namespace PlataformaAPI.Controllers
         {
             var claims = new[]
             {
-                new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
-                new Claim(ClaimTypes.Name, usuario.UserName),
-                new Claim(ClaimTypes.Email, usuario.Email),
-                new Claim("TipoUsuario", usuario.TipoUsuario.ToString()) // Adicionando o Tipo de Usuário ao token
+                new Claim(ClaimTypes.NameIdentifier, usuario.Id), // ESSA É A CLAIM PADRÃO!
+                new Claim("userId", usuario.Id), // Claim customizada simples
+                new Claim("email", usuario.Email),
+                new Claim("nomeCompleto", usuario.NomeCompleto),
+                new Claim("tipoUsuario", usuario.TipoUsuario.ToString())
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]));
@@ -70,7 +71,7 @@ namespace PlataformaAPI.Controllers
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(60), // Token expira em 1 minutos
+                expires: DateTime.UtcNow.AddMinutes(120),
                 signingCredentials: credentials
             );
 

@@ -167,6 +167,22 @@
   },
   {
     "ContainingType": "ChaveController",
+    "Method": "GetChaves",
+    "RelativePath": "api/Chave/{campeonatoId}/chaves",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "campeonatoId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ChaveController",
     "Method": "GerarChave",
     "RelativePath": "api/Chave/{campeonatoId}/gerar-chave",
     "HttpMethod": "POST",
@@ -352,9 +368,69 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "campeonatoDto",
-        "Type": "PlataformaAPI.Data.Dtos.CreateCampeonatoDto",
-        "IsRequired": true
+        "Name": "Nome",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DataInicio",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "DataFim",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "SobreEvento",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LocalEvento",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "TaxaInscricao",
+        "Type": "System.Decimal",
+        "IsRequired": false
+      },
+      {
+        "Name": "Premiacoes",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MaxInscritos",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "IdadeMinima",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "IdadeMaxima",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "LinkRegulamento",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LinkInscricao",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Foto",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -454,22 +530,6 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PlataformaAPI.Controllers.UsuarioController",
-    "Method": "CadastraUsuario",
-    "RelativePath": "Usuario/cadastrar",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "PlataformaAPI.Data.Dtos.CreateUsuarioDto",
         "IsRequired": true
       }
     ],
