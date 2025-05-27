@@ -104,6 +104,12 @@ builder.Services.AddSwaggerGen(c =>
 builder.Services.AddEndpointsApiExplorer();
 
 var app = builder.Build();
+// No Program.cs, após var app = builder.Build();
+// APENAS PARA DEBUG - REMOVA APÓS RESOLVER!
+Console.WriteLine($"DEBUG JWT - Issuer: {builder.Configuration["Jwt:Issuer"]}");
+Console.WriteLine($"DEBUG JWT - Audience: {builder.Configuration["Jwt:Audience"]}");
+Console.WriteLine($"DEBUG JWT - SecretKey Length: {builder.Configuration["Jwt:SecretKey"]?.Length ?? 0}");
+// NÃO LOGUE A SECRET KEY COMPLETA EM PRODUÇÃO! Use apenas o comprimento ou um hash dela.
 
 // Habilitar o Swagger em ambos os ambientes (desenvolvimento e produção)
 app.UseSwagger();
