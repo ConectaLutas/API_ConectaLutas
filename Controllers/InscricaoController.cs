@@ -1,10 +1,12 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer; // Adicione esta linha!
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PlataformaAPI.Models;
-using PlataformaJiujitsu.Models;
+using PlataformaJiujitsu.Models; // Ou PlataformaAPI.Models se o TipoUsuario estiver lá
 using PlataformaAPI.Data;
+
 
 namespace PlataformaJiujitsu.Controllers
 {
