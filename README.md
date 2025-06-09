@@ -94,3 +94,11 @@ cd backend
 dotnet restore
 dotnet ef database update
 dotnet run
+
+```bash
+###  Frontend
+cd frontend
+npm install
+npm run start
+
+
