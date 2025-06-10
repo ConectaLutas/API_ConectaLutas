@@ -65,9 +65,7 @@ builder.Services.AddCors(options =>
         // Inclua http://localhost:PORTA se estiver em desenvolvimento.
         builder.WithOrigins("https://conectalutas.netlify.app", "http://localhost:3000", "http://localhost:5173") // Exemplo para Vite
                        .AllowAnyMethod()
-                       .AllowAnyHeader();
-                       // Use AllowCredentials se você estiver usando cookies ou sessões, senão pode remover.
-    });
+                       .AllowAnyHeader();    });
 });
 
 // Configuração do Swagger para funcionar em produção e desenvolvimento
