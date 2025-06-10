@@ -5,6 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using PlataformaAPI.Data;
 using PlataformaAPI.Models;
 using PlataformaJiujitsu.Models;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
+using System.Text;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -100,7 +104,7 @@ public class ChaveController : ControllerBase
             lutas.Add(new Luta
             {
                 Atleta1Id = atletaBye.Id,
-                Atleta2Id = atletaBye.Id // "bye"
+                Atleta2Id = atletaBye.Id
             });
         }
 
@@ -179,5 +183,64 @@ public class ChaveController : ControllerBase
             campeonatoId = campeonato.Id,
             chaves = chavesResponse
         });
+    }
+
+    [HttpGet("{campeonatoId}/chaves/pdf")]
+    [Authorize]
+    public async Task<IActionResult> GerarPdfChaves(int campeonatoId)
+    {
+        var chaves = await _context.Chaves
+            .Include(ch => ch.Inscricoes)
+                .ThenInclude(i => i.Atleta)
+                    .ThenInclude(a => a.Usuario)
+            .Include(ch => ch.Lutas)
+            .Where(ch => ch.Inscricoes.Any(i => i.CampeonatoId == campeonatoId))
+            .ToListAsync();
+
+        if (!chaves.Any())
+            return NotFound("Nenhuma chave encontrada.");
+
+        byte[] pdfBytes = Document.Create(container =>
+        {
+            container.Page(page =>
+            {
+                page.Margin(30);
+                page.Content().Column(col =>
+                {
+                    col.Item().Text($"Chaves do Campeonato {campeonatoId}")
+                        .FontSize(20)
+                        .Bold()
+                        .AlignCenter();
+
+                    foreach (var chave in chaves)
+                    {
+                        col.Item().PaddingTop(20).Column(chaveCol =>
+                        {
+                            chaveCol.Item().Text($"Chave: {chave.Nome}")
+                                .FontSize(16)
+                                .Bold();
+
+                            chaveCol.Item().Text("Atletas:");
+                            foreach (var i in chave.Inscricoes)
+                            {
+                                chaveCol.Item().Text($"- {i.Atleta.Usuario.NomeCompleto}");
+                            }
+
+                            chaveCol.Item().Text("Lutas:");
+                            foreach (var luta in chave.Lutas)
+                            {
+                                var atleta1 = chave.Inscricoes.FirstOrDefault(i => i.AtletaId == luta.Atleta1Id)?.Atleta?.Usuario?.NomeCompleto ?? "Desconhecido";
+                                var atleta2 = chave.Inscricoes.FirstOrDefault(i => i.AtletaId == luta.Atleta2Id)?.Atleta?.Usuario?.NomeCompleto ?? "Desconhecido";
+                                chaveCol.Item().Text($"{atleta1} vs {atleta2}");
+                            }
+
+                            chaveCol.Item().Element(e => e.LineHorizontal(1).LineColor(Colors.Grey.Lighten2));
+                        });
+                    }
+                });
+            });
+        }).GeneratePdf();
+
+        return File(pdfBytes, "application/pdf", $"chaves_campeonato_{campeonatoId}.pdf");
     }
 }
