@@ -1,5 +1,23 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.jpeg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>PlataformaJiujitsu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PlataformaJiujitsu</BasePath>
+      <RelativePath>uploads/061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.jpeg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>lldhznfvvg</Fingerprint>
+      <Integrity>5zGz/lU3RinSi8SPtSxbq2lFpeEBDpFyLdwl71hAdAk=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.jpeg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\28d0042e-5664-4b64-a8f9-3fec83d29384_copa-puro-impacto-2025.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>PlataformaJiujitsu</SourceId>
@@ -89,6 +107,24 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\9856389e-02ca-429a-8a00-b18934bc38b1_Screenshot-2025-04-28T11-52-28.307Z.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>PlataformaJiujitsu</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/PlataformaJiujitsu</BasePath>
+      <RelativePath>uploads/cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>gzftq9ui2p</Fingerprint>
+      <Integrity>1Itms/JY9vLm/ZBEAxPOC9HKLGcNOhTAo4n99FT0xBg=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\f1412f41-930c-4b15-a2be-0a1674a01d21_copa-kind-2025.jpg'))">
       <SourceType>Package</SourceType>

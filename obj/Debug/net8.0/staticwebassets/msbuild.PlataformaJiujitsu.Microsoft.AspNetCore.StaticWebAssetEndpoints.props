@@ -1,5 +1,17 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAssetEndpoint Include="_content/PlataformaJiujitsu/uploads/061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.jpeg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.jpeg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-5zGz/lU3RinSi8SPtSxbq2lFpeEBDpFyLdwl71hAdAk="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"45343"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00225zGz/lU3RinSi8SPtSxbq2lFpeEBDpFyLdwl71hAdAk=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 17:20:46 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/PlataformaJiujitsu/uploads/061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.lldhznfvvg.jpeg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.jpeg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"lldhznfvvg"},{"Name":"integrity","Value":"sha256-5zGz/lU3RinSi8SPtSxbq2lFpeEBDpFyLdwl71hAdAk="},{"Name":"label","Value":"_content/PlataformaJiujitsu/uploads/061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.jpeg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"45343"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00225zGz/lU3RinSi8SPtSxbq2lFpeEBDpFyLdwl71hAdAk=\u0022"},{"Name":"Last-Modified","Value":"Tue, 10 Jun 2025 17:20:46 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/PlataformaJiujitsu/uploads/28d0042e-5664-4b64-a8f9-3fec83d29384_copa-puro-impacto-2025.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\28d0042e-5664-4b64-a8f9-3fec83d29384_copa-puro-impacto-2025.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -59,6 +71,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-P6NfrQAsMQSWffrNU2lCEt0GkjLvR5smg34vRlW2XbM="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"158276"},{"Name":"Content-Type","Value":"image/png"},{"Name":"ETag","Value":"\u0022P6NfrQAsMQSWffrNU2lCEt0GkjLvR5smg34vRlW2XbM=\u0022"},{"Name":"Last-Modified","Value":"Tue, 13 May 2025 00:21:35 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/PlataformaJiujitsu/uploads/cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.gzftq9ui2p.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"gzftq9ui2p"},{"Name":"integrity","Value":"sha256-1Itms/JY9vLm/ZBEAxPOC9HKLGcNOhTAo4n99FT0xBg="},{"Name":"label","Value":"_content/PlataformaJiujitsu/uploads/cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"8567230"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00221Itms/JY9vLm/ZBEAxPOC9HKLGcNOhTAo4n99FT0xBg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 27 May 2025 19:00:12 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/PlataformaJiujitsu/uploads/cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-1Itms/JY9vLm/ZBEAxPOC9HKLGcNOhTAo4n99FT0xBg="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"8567230"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00221Itms/JY9vLm/ZBEAxPOC9HKLGcNOhTAo4n99FT0xBg=\u0022"},{"Name":"Last-Modified","Value":"Tue, 27 May 2025 19:00:12 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/PlataformaJiujitsu/uploads/f1412f41-930c-4b15-a2be-0a1674a01d21_copa-kind-2025.apni8xz3st.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\f1412f41-930c-4b15-a2be-0a1674a01d21_copa-kind-2025.jpg'))</AssetFile>

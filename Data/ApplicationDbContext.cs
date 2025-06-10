@@ -27,19 +27,24 @@ namespace PlataformaAPI.Data
         public DbSet<Luta> Lutas { get; set; }
 
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            base.OnModelCreating(modelBuilder);
+            base.OnModelCreating(builder);
 
-            // Definição do relacionamento entre Graduacao e Esporte
-            modelBuilder.Entity<Graduacao>()
-                .HasOne(g => g.Esporte)
-                .WithMany() // Um esporte pode ter várias graduações
-                .HasForeignKey(g => g.EsporteId)
-                .OnDelete(DeleteBehavior.Cascade); // Se um esporte for excluído, suas graduações também serão
+            builder.Entity<Chave>()
+                .HasMany(c => c.Inscricoes)
+                .WithOne(i => i.Chave) // <- Nome da propriedade de navegação em Inscricao
+                .HasForeignKey(i => i.ChaveId) // <- Nome da chave estrangeira
+                .OnDelete(DeleteBehavior.Cascade);
 
-           
+            builder.Entity<Chave>()
+                .HasMany(c => c.Lutas)
+                .WithOne(l => l.Chave)
+                .HasForeignKey(l => l.ChaveId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
+
+
 
     }
 }

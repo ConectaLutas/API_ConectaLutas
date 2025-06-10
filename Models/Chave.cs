@@ -1,13 +1,15 @@
 ﻿using PlataformaJiujitsu.Models;
+using System.Collections.Generic;
 
-public class Chave
+namespace PlataformaAPI.Models
 {
+    public class Chave
+    {
+        public int Id { get; set; }
+        public int CategoriaId { get; set; }
+        public string Nome { get; set; }
 
-    public int Id { get; set; }
-    public string Nome { get; set; }
-    
-    public int CategoriaId { get; set; }
-    public Categoria Categoria { get; set; }
-    public ICollection<Luta> Lutas { get; set; }
-    public ICollection<Inscricao> Inscricoes { get; set; }
+        public List<Inscricao> Inscricoes { get; set; } = new();
+        public List<Luta> Lutas { get; set; } = new();
+    }
 }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pAnR+iBUqR6N3CA1QKjREnKGsGrPaImfZGxyz1vbsTY=",
+  "Hash": "4dB1Hz0coe5uP4jH9KGibZ1YAbQnT/zTtVEjdR5PKgk=",
   "Source": "PlataformaJiujitsu",
   "BasePath": "_content/PlataformaJiujitsu",
   "Mode": "Default",
@@ -16,6 +16,27 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.jpeg",
+      "SourceId": "PlataformaJiujitsu",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\",
+      "BasePath": "_content/PlataformaJiujitsu",
+      "RelativePath": "uploads/061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52#[.{fingerprint}]?.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "lldhznfvvg",
+      "Integrity": "5zGz/lU3RinSi8SPtSxbq2lFpeEBDpFyLdwl71hAdAk=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.jpeg"
+    },
     {
       "Identity": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\28d0042e-5664-4b64-a8f9-3fec83d29384_copa-puro-impacto-2025.jpg",
       "SourceId": "PlataformaJiujitsu",
@@ -122,6 +143,27 @@
       "OriginalItemSpec": "wwwroot\\uploads\\9856389e-02ca-429a-8a00-b18934bc38b1_Screenshot-2025-04-28T11-52-28.307Z.png"
     },
     {
+      "Identity": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.jpg",
+      "SourceId": "PlataformaJiujitsu",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\",
+      "BasePath": "_content/PlataformaJiujitsu",
+      "RelativePath": "uploads/cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "gzftq9ui2p",
+      "Integrity": "1Itms/JY9vLm/ZBEAxPOC9HKLGcNOhTAo4n99FT0xBg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.jpg"
+    },
+    {
       "Identity": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\f1412f41-930c-4b15-a2be-0a1674a01d21_copa-kind-2025.jpg",
       "SourceId": "PlataformaJiujitsu",
       "SourceType": "Discovered",
@@ -144,6 +186,88 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "uploads/061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.jpeg",
+      "AssetFile": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "45343"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5zGz/lU3RinSi8SPtSxbq2lFpeEBDpFyLdwl71hAdAk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 10 Jun 2025 17:20:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-5zGz/lU3RinSi8SPtSxbq2lFpeEBDpFyLdwl71hAdAk="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.lldhznfvvg.jpeg",
+      "AssetFile": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.jpeg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "45343"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"5zGz/lU3RinSi8SPtSxbq2lFpeEBDpFyLdwl71hAdAk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 10 Jun 2025 17:20:46 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "lldhznfvvg"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/061c61ce-5901-4b9c-9cd0-5a7ba734d1b7_WhatsApp Image 2025-05-13 at 10.35.52.jpeg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-5zGz/lU3RinSi8SPtSxbq2lFpeEBDpFyLdwl71hAdAk="
+        }
+      ]
+    },
     {
       "Route": "uploads/28d0042e-5664-4b64-a8f9-3fec83d29384_copa-puro-impacto-2025.jpg",
       "AssetFile": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\28d0042e-5664-4b64-a8f9-3fec83d29384_copa-puro-impacto-2025.jpg",
@@ -551,6 +675,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-P6NfrQAsMQSWffrNU2lCEt0GkjLvR5smg34vRlW2XbM="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.gzftq9ui2p.jpg",
+      "AssetFile": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8567230"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1Itms/JY9vLm/ZBEAxPOC9HKLGcNOhTAo4n99FT0xBg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 19:00:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "gzftq9ui2p"
+        },
+        {
+          "Name": "label",
+          "Value": "uploads/cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-1Itms/JY9vLm/ZBEAxPOC9HKLGcNOhTAo4n99FT0xBg="
+        }
+      ]
+    },
+    {
+      "Route": "uploads/cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.jpg",
+      "AssetFile": "C:\\Users\\ajeni\\source\\repos\\PlataformaJiujitsu\\wwwroot\\uploads\\cd3ba959-c0c3-4882-83db-4980510b72fe_GL_03995.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8567230"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"1Itms/JY9vLm/ZBEAxPOC9HKLGcNOhTAo4n99FT0xBg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 27 May 2025 19:00:12 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-1Itms/JY9vLm/ZBEAxPOC9HKLGcNOhTAo4n99FT0xBg="
         }
       ]
     },
