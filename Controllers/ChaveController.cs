@@ -24,7 +24,7 @@ public class ChaveController : ControllerBase
     }
 
     [HttpPost("{campeonatoId}/gerar-chave")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize]
     public async Task<IActionResult> GerarChave([FromRoute] int campeonatoId)
     {
         var usuarioAtual = await _userManager.GetUserAsync(User);
@@ -141,7 +141,7 @@ public class ChaveController : ControllerBase
     }
 
     [HttpGet("{campeonatoId}/chaves")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize]
     public async Task<IActionResult> GetChaves([FromRoute] int campeonatoId)
     {
         var campeonato = await _context.Campeonatos
@@ -186,7 +186,7 @@ public class ChaveController : ControllerBase
     }
 
     [HttpGet("{campeonatoId}/chaves/pdf")]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize]
     public async Task<IActionResult> GerarPdfChaves(int campeonatoId)
     {
         var chaves = await _context.Chaves
