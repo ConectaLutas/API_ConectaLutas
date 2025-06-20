@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PlataformaJiujitsu")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b11d0907255674fefe742cddf92ef65c549f8746")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+699ac089ddb05f03c326071e9e502e0e131928c6")]
 [assembly: System.Reflection.AssemblyProductAttribute("PlataformaJiujitsu")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PlataformaJiujitsu")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

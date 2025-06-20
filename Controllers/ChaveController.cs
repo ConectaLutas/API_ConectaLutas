@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +25,7 @@ public class ChaveController : ControllerBase
     }
 
     [HttpPost("{campeonatoId}/gerar-chave")]
-    [Authorize]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public async Task<IActionResult> GerarChave([FromRoute] int campeonatoId)
     {
         var usuarioAtual = await _userManager.GetUserAsync(User);
@@ -141,7 +142,7 @@ public class ChaveController : ControllerBase
     }
 
     [HttpGet("{campeonatoId}/chaves")]
-    [Authorize]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public async Task<IActionResult> GetChaves([FromRoute] int campeonatoId)
     {
         var campeonato = await _context.Campeonatos
@@ -186,61 +187,71 @@ public class ChaveController : ControllerBase
     }
 
     [HttpGet("{campeonatoId}/chaves/pdf")]
-    [Authorize]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public async Task<IActionResult> GerarPdfChaves(int campeonatoId)
     {
-        var chaves = await _context.Chaves
-            .Include(ch => ch.Inscricoes)
-                .ThenInclude(i => i.Atleta)
-                    .ThenInclude(a => a.Usuario)
-            .Include(ch => ch.Lutas)
-            .Where(ch => ch.Inscricoes.Any(i => i.CampeonatoId == campeonatoId))
-            .ToListAsync();
-
-        if (!chaves.Any())
-            return NotFound("Nenhuma chave encontrada.");
-
-        byte[] pdfBytes = Document.Create(container =>
+        try
         {
-            container.Page(page =>
+            var chaves = await _context.Chaves
+                .Include(ch => ch.Inscricoes)
+                    .ThenInclude(i => i.Atleta)
+                        .ThenInclude(a => a.Usuario)
+                .Include(ch => ch.Lutas)
+                .Where(ch => ch.Inscricoes.Any(i => i.CampeonatoId == campeonatoId))
+                .ToListAsync();
+
+            if (!chaves.Any())
+                return NotFound("Nenhuma chave encontrada.");
+
+            byte[] pdfBytes = Document.Create(container =>
             {
-                page.Margin(30);
-                page.Content().Column(col =>
+                container.Page(page =>
                 {
-                    col.Item().Text($"Chaves do Campeonato {campeonatoId}")
-                        .FontSize(20)
-                        .Bold()
-                        .AlignCenter();
-
-                    foreach (var chave in chaves)
+                    page.Margin(30);
+                    page.Content().Column(col =>
                     {
-                        col.Item().PaddingTop(20).Column(chaveCol =>
+                        col.Item().Text($"Chaves do Campeonato {campeonatoId}")
+                            .FontSize(20)
+                            .Bold()
+                            .AlignCenter();
+
+                        foreach (var chave in chaves)
                         {
-                            chaveCol.Item().Text($"Chave: {chave.Nome}")
-                                .FontSize(16)
-                                .Bold();
-
-                            chaveCol.Item().Text("Atletas:");
-                            foreach (var i in chave.Inscricoes)
+                            col.Item().PaddingTop(20).Column(chaveCol =>
                             {
-                                chaveCol.Item().Text($"- {i.Atleta.Usuario.NomeCompleto}");
-                            }
+                                chaveCol.Item().Text($"Chave: {chave.Nome}")
+                                    .FontSize(16)
+                                    .Bold();
 
-                            chaveCol.Item().Text("Lutas:");
-                            foreach (var luta in chave.Lutas)
-                            {
-                                var atleta1 = chave.Inscricoes.FirstOrDefault(i => i.AtletaId == luta.Atleta1Id)?.Atleta?.Usuario?.NomeCompleto ?? "Desconhecido";
-                                var atleta2 = chave.Inscricoes.FirstOrDefault(i => i.AtletaId == luta.Atleta2Id)?.Atleta?.Usuario?.NomeCompleto ?? "Desconhecido";
-                                chaveCol.Item().Text($"{atleta1} vs {atleta2}");
-                            }
+                                chaveCol.Item().Text("Atletas:");
+                                foreach (var i in chave.Inscricoes ?? new List<Inscricao>())
+                                {
+                                    var nome = i?.Atleta?.Usuario?.NomeCompleto ?? "Desconhecido";
+                                    chaveCol.Item().Text($"- {nome}");
+                                }
 
-                            chaveCol.Item().Element(e => e.LineHorizontal(1).LineColor(Colors.Grey.Lighten2));
-                        });
-                    }
+                                chaveCol.Item().Text("Lutas:");
+                                foreach (var luta in chave.Lutas ?? new List<Luta>())
+                                {
+                                    var atleta1 = chave.Inscricoes.FirstOrDefault(i => i.AtletaId == luta.Atleta1Id)?.Atleta?.Usuario?.NomeCompleto ?? "Desconhecido";
+                                    var atleta2 = chave.Inscricoes.FirstOrDefault(i => i.AtletaId == luta.Atleta2Id)?.Atleta?.Usuario?.NomeCompleto ?? "Desconhecido";
+                                    chaveCol.Item().Text($"{atleta1} vs {atleta2}");
+                                }
+
+                                chaveCol.Item().Element(e => e.LineHorizontal(1).LineColor(Colors.Grey.Lighten2));
+                            });
+                        }
+                    });
                 });
-            });
-        }).GeneratePdf();
+            }).GeneratePdf();
 
-        return File(pdfBytes, "application/pdf", $"chaves_campeonato_{campeonatoId}.pdf");
+            return File(pdfBytes, "application/pdf", $"chaves_campeonato_{campeonatoId}.pdf");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex); // ou log
+            return StatusCode(500, $"Erro interno ao gerar PDF: {ex.Message}");
+        }
     }
+
 }
