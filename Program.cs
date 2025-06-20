@@ -10,8 +10,6 @@ using Microsoft.AspNetCore.Http; // Necessário para HttpContext
 using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
-// Defina o tipo de licença do QuestPDF
-QuestPDF.Settings.License = LicenseType.Community;
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 Console.WriteLine($"Connection String: {connectionString}");
 
