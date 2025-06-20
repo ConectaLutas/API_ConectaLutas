@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Http; // Necessário para HttpContext
 using QuestPDF.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
-
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 Console.WriteLine($"Connection String: {connectionString}");
 
