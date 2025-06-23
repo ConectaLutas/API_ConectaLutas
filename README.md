@@ -93,6 +93,99 @@ dotnet restore
 dotnet ef database update
 dotnet run
 
+qualidade no commit e versão 
+## 🔄 Fluxo de Trabalho com Git
+
+Nosso projeto segue uma estratégia de Git com foco em clareza, organização e rastreabilidade:
+
+### 📁 Padrão de Branches
+
+- `main`: branch principal
+- `feature/<nome>`: nova funcionalidade
+- `fix/<nome>`: correção de erro
+- `refactor/<nome>`: refatoração de código
+- `hotfix/<nome>`: correção urgente em produção
+
+### 💬 Padrão de Commits
+
+- `feat`: nova funcionalidade
+- `fix`: correção de bug
+- `docs`: mudanças na documentação
+- `refactor`: melhoria no código
+- `test`: criação ou melhoria de testes
+- `chore`: tarefas técnicas
+
+### 📌 Versionamento com Releases
+
+Usamos releases GitHub para marcar versões principais do sistema:
+
+- `v1.0.0`: versão inicial funcional
+- `v1.1.0`: novas funcionalidades
+- `v1.1.1`: correções pequenas
+
+A descrição da release apresenta o que mudou (changelog).
+## 🔁 Fluxo de Pull Requests
+
+Nosso grupo segue um fluxo padronizado de contribuição via Pull Requests (PRs), com os seguintes passos:
+
+1. Crie uma branch nomeada por funcionalidade, exemplo: `feature/inscricao-campeonato`
+2. Realize os commits com mensagens descritivas
+3. Abra uma PR para a branch `main`
+4. Preencha o **template de PR**, marcando o checklist
+5. Solicite revisão de pelo menos **um membro do grupo**
+6. Revise o código de outros membros, comentando sugestões ou problemas encontrados
+7. Aplique as correções sugeridas (se houver)
+8. Após aprovação, a PR pode ser **mesclada** na `main`
+
+### ✍️ Nomeclatura de branches
+
+- `feature/` – novas funcionalidades
+- `fix/` – correções
+- `hotfix/` – correções urgentes na `main`
+- `refactor/` – melhorias sem mudança de funcionalidade
+
+### 💬 Exemplo de commit
+
+```bash
+feat: adiciona botão de inscrição no card de campeonato
+fix: corrige erro no cálculo de chaves ao cadastrar lutas
+# 📌 Descrição da Pull Request
+
+Descreva brevemente o que esta PR faz. Explique o contexto e por que essa mudança é necessária.
+
+---
+
+## ✅ Checklist
+
+- [ ] O código segue o padrão de estilo do projeto
+- [ ] Testes foram escritos ou atualizados para cobrir as mudanças
+- [ ] O sistema foi testado manualmente e está funcionando
+- [ ] Não há conflitos com a branch `main`
+- [ ] A documentação foi atualizada (quando necessário)
+- [ ] Esta PR está relacionada a uma issue? Se sim, link abaixo.
+
+---
+
+## 🔗 Issue Relacionada
+
+Closes #[número da issue]
+
+---
+
+## 🧪 Evidências
+
+Inclua capturas de tela, logs, prints dos testes Cypress ou GIFs, se aplicável.
+
+---
+
+## 🗣️ Revisores
+
+Peça revisão de pelo menos uma pessoa do grupo:
+
+@colega1  
+@colega2
+
+
 ```bash
 ###  Frontend
 cd frontend
